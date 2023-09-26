@@ -7,27 +7,27 @@ using MVCStok.Models.Entity;
 
 namespace MVCStok.Controllers
 {
-    public class CategoryController : Controller
+    public class CustomerController : Controller
     {
-        // GET: Category
+        // GET: Customer
 
         MvcDbStokEntities db = new MvcDbStokEntities();
-        public ActionResult CategoryList()
+        public ActionResult customerList()
         {
-            var categories = db.tbl_kategoriler.ToList(); ;
-           
-            return View(categories);
+            var customer = db.tbl_musteriler.ToList();
+            return View(customer);
         }
-        [HttpGet]
-        public ActionResult Category_new()
+        public ActionResult Customer_new()
         {
             return View();
         }
 
+
+
         [HttpPost]
-        public ActionResult Category_new(tbl_kategoriler p1)
+        public ActionResult Customer_new(tbl_musteriler p1)
         {
-            db.tbl_kategoriler.Add(p1);
+            db.tbl_musteriler.Add(p1);
             db.SaveChanges();
             return View();
         }

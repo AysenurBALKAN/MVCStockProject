@@ -1,0 +1,29 @@
+﻿@using MVCStok.Models.Entity
+@model List<tbl_musteriler>
+@{
+    ViewBag.Title = "customerList";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>customerList</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Müşteri ID</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+    </tr>
+    <tbody>
+        @foreach (var cstmr in Model)
+        {
+        <tr>
+            <td>@cstmr.MusteriID</td>
+            <td>@cstmr.MusteriAd</td>
+            <td>@cstmr.MusteriSoyad</td>
+            <td><a href="/Customer/delete/@cstmr.MusteriID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Customer/update/@cstmr.MusteriID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Customer/Customer_new/" class="btn btn-success">Yeni Müşteri Ekle</a>
+
