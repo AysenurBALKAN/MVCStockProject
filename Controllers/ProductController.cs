@@ -34,9 +34,19 @@ namespace MVCStok.Controllers
         [HttpPost]
         public ActionResult Product_new(tbl_urunler p1)
         {
+            var ctgrs = db.tbl_kategoriler.Where(m => m.KategoriID == p1.tbl_kategoriler.KategoriID).FirstOrDefault();
+            p1.tbl_kategoriler = ctgrs;
             db.tbl_urunler.Add(p1);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("ProductList");
+        }
+
+        public ActionResult delete(int id)
+        {
+            var prdct = db.tbl_urunler.Find(id);
+            db.tbl_urunler.Remove(prdct);
+            db.SaveChanges();
+            return RedirectToAction("ProductList");
         }
     }
 }

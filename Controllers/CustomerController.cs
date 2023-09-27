@@ -31,5 +31,13 @@ namespace MVCStok.Controllers
             db.SaveChanges();
             return View();
         }
+
+        public ActionResult delete(int id)
+        {
+            var cstmr = db.tbl_musteriler.Find(id);
+            db.tbl_musteriler.Remove(cstmr);
+            db.SaveChanges();
+            return RedirectToAction("customerList");
+        }
     }
 }

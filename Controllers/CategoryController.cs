@@ -31,5 +31,26 @@ namespace MVCStok.Controllers
             db.SaveChanges();
             return View();
         }
+
+        public ActionResult delete(int id)
+        {
+            var ctgry = db.tbl_kategoriler.Find(id);
+            db.tbl_kategoriler.Remove(ctgry);
+            db.SaveChanges();
+            return RedirectToAction("CategoryList");
+        }
+        public ActionResult categoryGetir(int id)
+        {
+            var ctgr = db.tbl_kategoriler.Find(id);
+            return View("categoryGetir", ctgr);
+        }
+            public ActionResult update(tbl_kategoriler p2)
+        {
+            var ctgrrr = db.tbl_kategoriler.Find(p2.KategoriID);
+
+            ctgrrr.KatwgoriAd = p2.KatwgoriAd;
+            db.SaveChanges();
+            return RedirectToAction("CategoryList");
+        }
     }
 }
