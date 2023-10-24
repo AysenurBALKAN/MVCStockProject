@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PagedList;
+using PagedList.Mvc;
 using System.Web.Mvc;
 using MVCStok.Models.Entity;
 
@@ -12,10 +14,10 @@ namespace MVCStok.Controllers
         // GET: Category
 
         MvcDbStokEntities db = new MvcDbStokEntities();
-        public ActionResult CategoryList()
+        public ActionResult CategoryList(int sayfa=1)
         {
-            var categories = db.tbl_kategoriler.ToList(); ;
-           
+            // var categories = db.tbl_kategoriler.ToList(); ;
+            var categories = db.tbl_kategoriler.ToList().ToPagedList(sayfa, 4);
             return View(categories);
         }
         [HttpGet]

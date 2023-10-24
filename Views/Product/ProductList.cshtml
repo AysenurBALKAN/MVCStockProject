@@ -7,15 +7,19 @@
 
 <h2>ProductList</h2>
 
-<table class="table table-hover">
-    <tr>
-        <th>Ürün ID</th>
-        <th>Ürün Adı</th>
-        <th>Marka</th>
-        <th>Kategori</th>
-        <th>Fiyat</th>
-        <th>Stok Miktarı</th>
-    </tr>
+<table id="tbl1" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Ürün ID</th>
+            <th>Ürün Adı</th>
+            <th>Marka</th>
+            <th>Kategori</th>
+            <th>Fiyat</th>
+            <th>Stok Miktarı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var prdct in Model)
         {
@@ -33,3 +37,8 @@
     </tbody>
 </table>
 <a href="/Product/Product_new/" class="btn btn-success">Yeni Ürün Ekle</a>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable();
+</script>

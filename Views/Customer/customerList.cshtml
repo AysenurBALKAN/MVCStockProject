@@ -11,17 +11,19 @@
         <th>Müşteri ID</th>
         <th>Müşteri Adı</th>
         <th>Müşteri Soyadı</th>
+        <th>Alert</th>
     </tr>
     <tbody>
         @foreach (var cstmr in Model)
         {
-        <tr>
-            <td>@cstmr.MusteriID</td>
-            <td>@cstmr.MusteriAd</td>
-            <td>@cstmr.MusteriSoyad</td>
-            <td><a href="/Customer/delete/@cstmr.MusteriID" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Customer/customer_getir/@cstmr.MusteriID" class="btn btn-warning">Güncelle</a></td>
-        </tr>
+            <tr>
+                <td>@cstmr.MusteriID</td>
+                <td>@cstmr.MusteriAd</td>
+                <td>@cstmr.MusteriSoyad</td>
+                <td><a href="/Customer/delete/@cstmr.MusteriID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Customer/customer_getir/@cstmr.MusteriID" class="btn btn-warning">Güncelle</a></td>
+                <td> @Html.ActionLink("Sil", "delete", new {id=cstmr.MusteriID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten Silmek İstiyormusunuz?')" })</td>
+            </tr>
         }
     </tbody>
 </table>
