@@ -11,7 +11,8 @@ namespace MVCStok.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_kategoriler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace MVCStok.Models.Entity
         }
     
         public short KategoriID { get; set; }
+
+        [Required(ErrorMessage ="Lütfen Kategori Adý Boþ Býrakýlamaz")]
         public string KatwgoriAd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

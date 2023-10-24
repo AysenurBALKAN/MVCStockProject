@@ -27,6 +27,10 @@ namespace MVCStok.Controllers
         [HttpPost]
         public ActionResult Category_new(tbl_kategoriler p1)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Category_new");
+            }
             db.tbl_kategoriler.Add(p1);
             db.SaveChanges();
             return View();

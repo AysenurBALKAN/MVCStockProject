@@ -228,6 +228,8 @@
     <Content Include="Views\Customer\Customer_new.cshtml" />
     <Content Include="Views\Product\Product_new.cshtml" />
     <Content Include="Views\Category\categoryGetir.cshtml" />
+    <Content Include="Views\Customer\customer_getir.cshtml" />
+    <Content Include="Views\Product\product_getir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
