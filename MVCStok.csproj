@@ -478,6 +478,7 @@
     <Content Include="Views\Sale\Sales.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Help\help.cshtml" />
+    <Content Include="Views\Sale\new_sales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

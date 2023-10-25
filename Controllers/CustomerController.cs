@@ -17,6 +17,8 @@ namespace MVCStok.Controllers
             var customer = db.tbl_musteriler.ToList();
             return View(customer);
         }
+
+        [HttpGet]
         public ActionResult Customer_new()
         {
             return View();
@@ -33,7 +35,7 @@ namespace MVCStok.Controllers
             }
             db.tbl_musteriler.Add(p1);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("customerList");
         }
 
         public ActionResult delete(int id)

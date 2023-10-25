@@ -13,8 +13,11 @@ namespace MVCStok.Controllers
         MvcDbStokEntities db = new MvcDbStokEntities();
         public ActionResult Sales()
         {
-            return View();
+            var saleee =db.tbl_satislar.ToList();
+            return View(saleee);
         }
+
+        
 
         [HttpGet]
         public ActionResult new_sales()
@@ -28,7 +31,7 @@ namespace MVCStok.Controllers
         {
             db.tbl_satislar.Add(p);
             db.SaveChanges();
-            return View("Sales");
+            return RedirectToAction("Sales");
         }
 
 

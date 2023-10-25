@@ -1,38 +1,78 @@
-﻿@model MVCStok.Models.Entity.tbl_satislar
+﻿
+@using MVCStok.Models.Entity
+@model List<tbl_satislar>
 
 @{
     ViewBag.Title = "Sales";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+<h2>Sales</h2>
 
-<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#Modal1">
-    Satış Yap
-</button>
-<div class="modal" id="Modal1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Satış Yapma Ekranı</h2>
-            </div>
-            <form method="post" action="/Sale/new_sales">
-                <div class="modal-body">
-                    <label>Ürün ID</label>
-                    @Html.TextBoxFor(m => m.Urun, new { @class = "form-control" })
-                    <br />
-                    <label>Müşteri ID</label>
-                    @Html.TextBoxFor(m => m.Musteri, new { @class = "form-control" })
-                    <br />
-                    <label>Adet</label>
-                    @Html.TextBoxFor(m => m.Adet, new { @class = "form-control" })
-                    <br />
-                    <label>Fiyat</label>
-                    @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
-                    <br />
-                    <button type="submit" class="btn btn-success">Satış Yap</button>
-                    <button type="submit" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+<table id="tbl1" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Ürün ID</th>
+            <th>Ürün Adı</th>
+            <th>Müşteri Adı</th>
+            <th>Müşteri Soyadı</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sales in Model)
+        {
+            <tr>
+
+                <td>@sales.Urun</td>
+                <td>@sales.tbl_urunler.UrunAd</td>
+                <td>@sales.tbl_musteriler.MusteriAd</td>
+                <td>@sales.tbl_musteriler.MusteriSoyad</td>
+                <td>@sales.Adet</td>
+                <td>@sales.Fiyat</td>
+                <td>@Html.ActionLink("Sil", "delete", new { id = sales.tbl_urunler.UrunID }, new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten Silmek İstiyormusunuz?')" })</td>
+                <td><a href="/Sale//@sales.tbl_urunler.UrunID" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+    
+    }
+        </tbody>
+    </table>
+    <a href="/Sale/new_sales/" class="btn btn-success">Yeni Sipariş Ekle</a>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script>
+        $('#tbl1').DataTable();
+    </script>
+    @* İsteğe bağlı olarak modal pop-up kullanılabilir.Aşağıdakiler modal pop-up kodlarıdır. <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#Modal1">
+            Satış Yap
+        </button>
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Satış Yapma Ekranı</h2>
+                    </div>
+                    <form method="post" action="/Sale/new_sales">
+                        <div class="modal-body">
+                            <label>Ürün ID</label>
+                            @Html.TextBoxFor(m => m.Urun, new { @class = "form-control" })
+                            <br />
+                            <label>Müşteri ID</label>
+                            @Html.TextBoxFor(m => m.Musteri, new { @class = "form-control" })
+                            <br />
+                            <label>Adet</label>
+                            @Html.TextBoxFor(m => m.Adet, new { @class = "form-control" })
+                            <br />
+                            <label>Fiyat</label>
+                            @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+                            <br />
+                            <button type="submit" class="btn btn-success">Satış Yap</button>
+                            <button type="submit" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
+            </div>
+        </div>*@
 
