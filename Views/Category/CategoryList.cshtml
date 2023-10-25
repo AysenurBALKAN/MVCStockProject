@@ -22,7 +22,7 @@
            <tr>
                <td>@ctgrs.KategoriID</td>
                <td>@ctgrs.KatwgoriAd</td>
-               <td><a href="/Category/delete/@ctgrs.KategoriID" class="btn btn-danger">Sil</a></td>
+               <td> @Html.ActionLink("Sil", "delete", new { id = ctgrs.KategoriID }, new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten Silmek İstiyormusunuz?')" })</td>
                <td><a href="/Category/categoryGetir/@ctgrs.KategoriID" class="btn btn-warning">Güncelle</a></td>
            </tr>
        }

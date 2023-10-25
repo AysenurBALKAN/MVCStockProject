@@ -1,4 +1,5 @@
 ﻿@model MVCStok.Models.Entity.tbl_satislar
+
 @{
     ViewBag.Title = "Sales";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -15,10 +16,10 @@
             </div>
             <form method="post" action="/Sale/new_sales">
                 <div class="modal-body">
-                    <label>Ürün Adı</label>
+                    <label>Ürün ID</label>
                     @Html.TextBoxFor(m => m.Urun, new { @class = "form-control" })
                     <br />
-                    <label>Müşteri Adı Soyadı</label>
+                    <label>Müşteri ID</label>
                     @Html.TextBoxFor(m => m.Musteri, new { @class = "form-control" })
                     <br />
                     <label>Adet</label>
@@ -29,9 +30,6 @@
                     <br />
                     <button type="submit" class="btn btn-success">Satış Yap</button>
                     <button type="submit" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
-
-
-
                 </div>
             </form>
         </div>

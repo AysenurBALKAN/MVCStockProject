@@ -30,7 +30,7 @@
             <td>@prdct.tbl_kategoriler.KatwgoriAd</td>
             <td>@prdct.Fiyat</td>
             <td>@prdct.Stok</td>
-            <td><a href="/Product/delete/@prdct.UrunID" class="btn btn-danger">Sil</a></td>
+            <td> @Html.ActionLink("Sil", "delete", new { id = prdct.UrunID }, new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten Silmek İstiyormusunuz?')" })</td>
             <td><a href="/Product/product_getir/@prdct.UrunID" class="btn btn-warning">Güncelle</a></td>
         </tr>
         }
@@ -38,7 +38,7 @@
 </table>
 <a href="/Product/Product_new/" class="btn btn-success">Yeni Ürün Ekle</a>
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
 <script>
     $('#tbl1').DataTable();
 </script>
