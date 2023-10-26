@@ -3,14 +3,15 @@
 @model List<tbl_satislar>
 
 @{
-    ViewBag.Title = "Sales";
+    ViewBag.Title = "Satışlar";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-<h2>Sales</h2>
+<h2>Satışlar</h2>
 
 <table id="tbl1" class="table table-hover">
     <thead>
         <tr>
+            <th>Satış ID</th>
             <th>Ürün ID</th>
             <th>Ürün Adı</th>
             <th>Müşteri Adı</th>
@@ -25,15 +26,15 @@
         @foreach (var sales in Model)
         {
             <tr>
-
+                <td>@sales.SatisID</td>
                 <td>@sales.Urun</td>
                 <td>@sales.tbl_urunler.UrunAd</td>
                 <td>@sales.tbl_musteriler.MusteriAd</td>
                 <td>@sales.tbl_musteriler.MusteriSoyad</td>
                 <td>@sales.Adet</td>
                 <td>@sales.Fiyat</td>
-                <td>@Html.ActionLink("Sil", "delete", new { id = sales.tbl_urunler.UrunID }, new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten Silmek İstiyormusunuz?')" })</td>
-                <td><a href="/Sale//@sales.tbl_urunler.UrunID" class="btn btn-warning">Güncelle</a></td>
+                <td>@Html.ActionLink("Sil", "delete", new { id = sales.SatisID }, new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten Silmek İstiyormusunuz?')" })</td>
+                <td><a href="/Sale/sale_guncelle/@sales.SatisID" class="btn btn-warning">Güncelle</a></td>
             </tr>
     
     }

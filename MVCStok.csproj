@@ -451,6 +451,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\indir.png" />
     <Content Include="Views\stok.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -479,6 +480,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Help\help.cshtml" />
     <Content Include="Views\Sale\new_sales.cshtml" />
+    <Content Include="Views\Sale\sale_guncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

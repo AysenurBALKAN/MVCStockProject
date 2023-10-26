@@ -34,7 +34,30 @@ namespace MVCStok.Controllers
             return RedirectToAction("Sales");
         }
 
+        public ActionResult delete(int id)
+        {
+            var saleee = db.tbl_satislar.Find(id);
+            db.tbl_satislar.Remove(saleee);
+            db.SaveChanges();
+            return RedirectToAction("Sales");
+        }
 
+        public ActionResult sale_guncelle(int id)
+        {
+            var saleee = db.tbl_satislar.Find(id);
+            return View("sale_guncelle", saleee);
+        }
+
+        public ActionResult Guncelle (tbl_satislar p1)
+        {
+            var saleee = db.tbl_satislar.Find(p1.SatisID);
+            saleee.Urun = p1.Urun;
+            saleee.Musteri = p1.Musteri;
+            saleee.Adet = p1.Adet;
+            saleee.Fiyat = p1.Fiyat;
+            db.SaveChanges();
+            return RedirectToAction("Sales");
+        }
 
     }
 }
